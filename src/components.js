@@ -1,31 +1,39 @@
-export const Stack = {
-  type: "Stack",
-  creator: "addStack",
-  props: {
-    centerAlignContent: (widget) => {
-      widget.centerAlignContent();
-    },
-    layoutVertically: (widget) => {
-      widget.layoutVertically();
-    },
-  },
+export const createStack = (parentWidget, props) => {
+  const widget = parentWidget.addStack();
+  const { children, centerAlignContent, layoutVertically, ...otherProps } =
+    props;
+  if (centerAlignContent) {
+    widget.centerAlignContent();
+  }
+  if (layoutVertically) {
+    widget.layoutVertically();
+  }
+  Object.keys(otherProps).forEach((key) => {
+    widget[key] = otherProps[key];
+  });
+  return widget;
 };
 
-export const Text = {
-  type: "Text",
-  creator: "addText",
+export const createText = (parentWidget, props) => {
+  const { children, ...otherProps } = props;
+  const widget = parentWidget.addText(children);
+  Object.keys(otherProps).forEach((key) => {
+    widget[key] = otherProps[key];
+  });
+  return widget;
 };
 
-export const Spacer = {
-  type: "Spacer",
-  creator: (props, parentWidget) => {
-    parentWidget.addSpacer(props.size);
-  },
+export const createSpacer = (parentWidget, props) => {
+  const { size } = props;
+  const widget = parentWidget.addSpacer(size);
+  return widget;
 };
 
-export const Image = {
-  type: "Image",
-  creator: (props, parentWidget) => {
-    parentWidget.addImage(props.source);
-  },
+export const createImage = (parentWidget, props) => {
+  const { children, source, ...otherProps } = props;
+  const widget = parentWidget.addImage(source);
+  Object.keys(otherProps).forEach((key) => {
+    widget[key] = otherProps[key];
+  });
+  return widget;
 };

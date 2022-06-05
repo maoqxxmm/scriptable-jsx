@@ -7,6 +7,6 @@ export const jsx = (type, props) => {
 
 export const jsxs = jsx;
 
-export const Fragment = {
-  type: "Fragment",
+export const Fragment = function (props) {
+  return props.children;
 };
