@@ -1,0 +1,19 @@
+{
+  "name": "scriptable-jsx",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:maoqxxmm/scriptable-jsx.git",
+  "author": "maoqxm <maoqxm@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
