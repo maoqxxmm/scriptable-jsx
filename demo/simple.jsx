@@ -1,4 +1,4 @@
-import { render } from "./dom";
+import { render } from "../src/dom";
 
 const widget = new ListWidget();
 

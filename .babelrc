@@ -9,14 +9,5 @@
       }
     ],
     "@babel/preset-react"
-  ],
-  "plugins": [
-    [
-      "@babel/plugin-transform-react-jsx",
-      {
-        "runtime": "automatic", // defaults to classic
-        "importSource": "./" // defaults to react
-      }
-    ]
   ]
 }

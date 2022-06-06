@@ -1,7 +1,14 @@
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: "./src/index.js",
   output: {
     path: __dirname + "/dist",
+    filename: "index.js",
+    library: {
+      type: "module",
+    },
+  },
+  experiments: {
+    outputModule: true,
   },
   resolve: {
     alias: {
@@ -11,7 +18,6 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
-  experiments: { topLevelAwait: true },
   module: {
     rules: [
       {
@@ -20,8 +26,5 @@ module.exports = {
         use: ["babel-loader"],
       },
     ],
-  },
-  optimization: {
-    minimize: false,
   },
 };
