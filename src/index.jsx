@@ -1,11 +1,10 @@
 import { render } from "./dom";
-import { Stack, Text } from "./components";
 
 const widget = new ListWidget();
 
 const Comp1 = function () {
   return (
-    <stack>
+    <stack size={new Size(100, 50)}>
       <text>456</text>
     </stack>
   );

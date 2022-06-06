@@ -9,13 +9,13 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   experiments: { topLevelAwait: true },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.((j|t)s|(j|t)sx)$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
       },

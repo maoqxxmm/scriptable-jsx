@@ -1,4 +1,4 @@
-import * as CompCreator from "./components";
+import { Element } from "./element";
 
 export const render = (tree, parentWidget) => {
   const { type, props } = tree;
@@ -16,17 +16,8 @@ export const render = (tree, parentWidget) => {
 };
 
 const createDOM = (parentWidget, type, props) => {
-  switch (type) {
-    case "stack":
-      return CompCreator.createStack(parentWidget, props);
-    case "text":
-      return CompCreator.createText(parentWidget, props);
-    case "spacer":
-      return CompCreator.createSpacer(parentWidget, props);
-    case "image":
-      return CompCreator.createImage(parentWidget, props);
-  }
-  return null;
+  const element = new Element(parentWidget, props);
+  return element.create(type);
 };
 
 const createChildren = (widget, children) => {
