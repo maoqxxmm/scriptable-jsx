@@ -1,6 +1,7 @@
 import { Element } from "./element";
+import { JSXChildren, JSXNode, JSXProps, JSXType, Widget } from "./types";
 
-export const render = (tree, parentWidget) => {
+export const render = (tree: JSXNode, parentWidget: Widget) => {
   const { type, props } = tree;
   const { children, ...otherProps } = props;
 
@@ -15,12 +16,12 @@ export const render = (tree, parentWidget) => {
   }
 };
 
-const createDOM = (parentWidget, type, props) => {
+const createDOM = (parentWidget: Widget, type: string, props: JSXProps) => {
   const element = new Element(parentWidget, props);
   return element.create(type);
 };
 
-const createChildren = (widget, children) => {
+const createChildren = (widget: Widget, children: JSXChildren) => {
   if (Array.isArray(children)) {
     children.forEach((child) => render(child, widget));
   } else if (typeof children === "object") {
