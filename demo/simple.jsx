@@ -13,10 +13,15 @@ const Comp1 = function () {
 render(
   <>
     <stack>
-      <text>Hello World</text>
+      <text>Hello</text>
+      <spacer length={50}></spacer>
+      <text>World</text>
     </stack>
     <stack>
       <text>123</text>
+    </stack>
+    <stack>
+      <date date={new Date()} applyTimeStyle></date>
     </stack>
     <Comp1 />
   </>,

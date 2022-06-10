@@ -1,13 +1,16 @@
 import { ElementBuilder } from ".";
-import { Widget } from "../types";
-import { simpleSetProps } from "./utils";
 
 export class ImageBuilder extends ElementBuilder {
+  protected reservedProps: string[] = ["source"];
+  protected funcPropsMap: Record<string, string> = {
+    leftAlignImage: "leftAlignImage",
+    centerAlignImage: "centerAlignImage",
+    rightAlignImage: "rightAlignImage",
+    applyFittingContentMode: "applyFittingContentMode",
+    applyFillingContentMode: "applyFillingContentMode",
+  };
+
   createWidget() {
     return this.parentWidget.addImage(this.props.source);
-  }
-  setProps(widget: Widget) {
-    const { source, children, ...otherProps } = this.props;
-    simpleSetProps(widget, otherProps);
   }
 }

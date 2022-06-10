@@ -1057,6 +1057,11 @@
   resolved "https://registry.npmmirror.com/@types/node/-/node-17.0.38.tgz#f8bb07c371ccb1903f3752872c89f44006132947"
   integrity sha512-5jY9RhV7c0Z4Jy09G+NIDTsCZ5G0L5n+Z+p+Y7t5VJHM30bgwzSjVtlcBxqAj+6L/swIlvtOSzr8rBk/aNyV2g==
 
+"@types/scriptable-ios@^1.6.5":
+  version "1.6.5"
+  resolved "https://registry.npmjs.org/@types/scriptable-ios/-/scriptable-ios-1.6.5.tgz#24ff69f7e6d7b775d20d634aaff4b29592998b61"
+  integrity sha512-8HvyHVIwmCdXt509c7xIvcccVnIstRMJ9DXVU5SEVjF3EJl3T9/BEF4lNjrJ+uyZPLIOacLeJ2nMgohl8NLk8A==
+
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
   resolved "https://registry.npmmirror.com/@webassemblyjs/ast/-/ast-1.11.1.tgz#2bfd767eae1a6996f432ff7e8d7fc75679c0b6a7"
