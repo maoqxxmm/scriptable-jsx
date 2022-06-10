@@ -1,7 +1,13 @@
-import { JSXProps, Widget } from "./types";
+import { JSXProps, Widget } from "../types";
+import { ImageBuilder } from "./image";
+import { SpacerBuilder } from "./spacer";
+import { StackBuilder } from "./stack";
+import { TextBuilder } from "./text";
+import { simpleSetProps } from "./utils";
 
 // 对外暴露的 Element 生成器
 export class Element {
+  // 由于提供的基类是抽象类，在使用 new 的时候会报错，这里使用 any 跳过检查。实际由 register 去控制输入
   static builderMap = new Map<string, any>();
 
   private parentWidget: Widget;
@@ -27,15 +33,8 @@ export class Element {
   }
 }
 
-// 直接把 props 写进 widget 对象
-const simpleSetProps = (widget: Widget, props: Record<string, any>) => {
-  Object.keys(props).forEach((key) => {
-    widget[key] = props[key];
-  });
-};
-
 // 各个原生组件生成器的抽象类
-abstract class ElementBuilder {
+export abstract class ElementBuilder {
   protected parentWidget: Widget;
   protected props: JSXProps;
 
@@ -54,45 +53,6 @@ abstract class ElementBuilder {
 
   setProps(widget: Widget) {
     const { children, ...otherProps } = this.props;
-    simpleSetProps(widget, otherProps);
-  }
-}
-
-class StackBuilder extends ElementBuilder {
-  createWidget() {
-    return this.parentWidget.addStack();
-  }
-  setProps(widget: Widget) {
-    const { children, centerAlignContent, layoutVertically, ...otherProps } =
-      this.props;
-    if (centerAlignContent) {
-      widget.centerAlignContent();
-    }
-    if (layoutVertically) {
-      widget.layoutVertically();
-    }
-    simpleSetProps(widget, otherProps);
-  }
-}
-
-class TextBuilder extends ElementBuilder {
-  createWidget() {
-    return this.parentWidget.addText(this.props.children);
-  }
-}
-
-class SpacerBuilder extends ElementBuilder {
-  createWidget() {
-    return this.parentWidget.addSpacer();
-  }
-}
-
-class ImageBuilder extends ElementBuilder {
-  createWidget() {
-    return this.parentWidget.addImage(this.props.source);
-  }
-  setProps(widget: Widget) {
-    const { source, children, ...otherProps } = this.props;
     simpleSetProps(widget, otherProps);
   }
 }

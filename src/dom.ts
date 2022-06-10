@@ -1,4 +1,4 @@
-import { Element } from "./element";
+import { Element } from "./elements";
 import { JSXChildren, JSXNode, JSXProps, JSXType, Widget } from "./types";
 
 export const render = (tree: JSXNode, parentWidget: Widget) => {
