@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     // Ensure that .d.ts files are created by tsc, but not .js files
     "declaration": true,
     "emitDeclarationOnly": true,
@@ -7,10 +8,7 @@
     "isolatedModules": true,
     "strict": true,
     "declarationDir": "dist",
-    "allowJs": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "allowJs": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

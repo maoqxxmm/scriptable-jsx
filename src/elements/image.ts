@@ -1,5 +1,5 @@
 import { ElementBuilder } from ".";
-import { Widget } from "@/types";
+import { Widget } from "../types";
 import { simpleSetProps } from "./utils";
 
 export class ImageBuilder extends ElementBuilder {
