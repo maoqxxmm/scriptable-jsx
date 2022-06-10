@@ -39,7 +39,7 @@ widget.presentMedium();
 
 目前实现了 Fragment 和 组件的组合、嵌套 功能。
 
-原生组件目前支持 stack、text、spacer、image 四种。
+原生组件目前支持 stack、text、spacer、image、date 五种。
 
 ## 如何使用
 
