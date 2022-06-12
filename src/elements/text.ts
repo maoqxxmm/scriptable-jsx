@@ -8,6 +8,6 @@ export class TextBuilder extends ElementBuilder {
   };
 
   createWidget() {
-    return this.parentWidget.addText(this.props.children);
+    return this.parentWidget.addText(String(this.props.children));
   }
 }
