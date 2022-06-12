@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./demo/simple.jsx",
+  entry: "./demo/holiday.jsx",
   output: {
     path: __dirname + "/dist",
     filename: "simple.js",
@@ -7,6 +7,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
+  experiments: { topLevelAwait: true },
   module: {
     rules: [
       {
