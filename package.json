@@ -12,7 +12,8 @@
     "prepublishOnly": "npm run build"
   },
   "sideEffects": [
-    "**/*.js"
+    "**/*.js",
+    "**/*.ts"
   ],
   "files": [
     "dist/*.js",
