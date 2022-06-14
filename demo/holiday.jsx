@@ -4,6 +4,7 @@ const widget = new ListWidget();
 
 const fetchRecentHoliday = async () => {
   // open api from https://www.mxnzp.com/doc/detail?id=1
+  // app_id and app_secret here are just for demo purpose and expired. You should apply for it from https://www.mxnzp.com/
   const req = new Request(
     "https://www.mxnzp.com/api/holiday/recent/list?app_id=vrlhpgmqpivpkfjw&app_secret=S1RXWGZNa0pBWDIyQlJuRVQ5bnpTQT09"
   );
