@@ -60,7 +60,7 @@ We have supported these native tags now:
 
 Remember, just like react, all the native tags are lowercase. The custom tags should start with uppercase.
 
-All the props are the same as native. For example:
+All the props are the same as native basically. For example:
 
 ```xml
 <date date={new Date()} applyTimeStyle></date>

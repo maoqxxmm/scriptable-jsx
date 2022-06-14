@@ -1,65 +1,88 @@
 # scriptable-jsx
 
-本项目旨在为使用 Scripable 绘制小组件的布局时，提供更便捷的声明式语法，不需要再撰写繁杂的命令式语句。
+本项目旨在为编写 [Scriptable](https://scriptable.app/) 的小组件提供 JSX 语法。以及一些额外的工具。
 
-## 语法介绍
+## 安装
 
-可以参考 `demo/simple.jsx` 文件。对于前端开发者来说应该是非常熟悉的。
+`npm i scriptable-jsx`
 
-所有的原生组件使用小写，自定义组件首字母大写。
+## 前置依赖
+
+1. webpack (or other bundler)
+2. babel
+3. @babel/plugin-transform-react-jsx
+
+## 用法
+
+1. 我们可以创建一个这样的 jsx 文件:
 
 ```jsx
-import { render } from "../src/dom";
+import { render } from "scriptable-jsx";
 
 const widget = new ListWidget();
 
-const Comp1 = function () {
-  return (
-    <stack size={new Size(100, 50)}>
-      <text>456</text>
-    </stack>
-  );
-};
-
-render(
-  <>
-    <stack>
-      <text>Hello World</text>
-    </stack>
-    <stack>
-      <text>123</text>
-    </stack>
-    <Comp1 />
-  </>,
-  widget
-);
+render(<stack>Hello World</stack>, widget);
 
 widget.presentMedium();
 ```
 
-目前实现了 Fragment 和 组件的组合、嵌套 功能。
-
-原生组件目前支持 stack、text、spacer、image、date 五种。
-
-## 如何使用
-
-`npm install scriptable-jsx`
-
-jsx 代码需要编译后使用，所以我们需要使用打包工具。webpack 的配置可以参考 `demo/webpack.config.js` 文件。
-
-重点在于 `.babelrc` 的 `plugins` 字段：
+2. 配置 Babel:
 
 ```json
-"plugins": [
+{
+  ...,
+  "plugins": [
     [
       "@babel/plugin-transform-react-jsx",
       {
         "runtime": "automatic",
-        // 注意这里要写 scriptable-jsx，demo 里那个是本地跑的
+        // use scriptable-jsx to parse jsx
         "importSource": "scriptable-jsx"
       }
     ]
   ]
+}
 ```
 
-我们借助 `@babel/plugin-transform-react-jsx` 的 `importSource` 字段实现了自定义 jsx 解析
+## 支持的标签
+
+目前支持一下原生标签:
+
+- stack
+- image
+- spacer
+- text
+- date
+
+注意，和 React 一样，原生标签都是小写的。如果你想写自定义组件，那么首字母要大写。
+
+所有的 props 都和原生的基本一样，举个 🌰:
+
+```xml
+<date date={new Date()} applyTimeStyle></date>
+<stack
+  size={new Size(100, 50)}
+  backgroundColor={new Color("#ff0000")}
+>
+  <text>Test</text>
+</stack>
+```
+
+## 扩展功能
+
+### FlexibleSize
+
+```jsx
+import { FlexibleSize } from "scriptable-jsx";
+
+<stack size={new FlexibleSize(50, 50)}></stack>;
+```
+
+原生的 `Size` 实现的是 `pt` 单位的距离。它很精确但不够弹性。使用者需要为不同尺寸的设备进行额外的适配工作。而 `FlexibleSize` 能帮助你创建出相对距离的值。传入的参数代表的是相对于小组件宽高尺寸的百分比。
+
+我们已经提供了一些常见尺寸的数据（详见：[device-data.ts](https://github.com/maoqxxmm/scriptable-jsx/blob/master/src/utils/size/device-data.ts)）。如果有需要的话你也可以添加自定义的尺寸。
+
+## TODO
+
+- [ ] 写单测
+- [ ] 移除 `any` 类型
