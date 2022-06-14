@@ -75,7 +75,7 @@ All the props are the same as native. For example:
 ### FlexibleSize
 
 ```jsx
-import { FlexibleSize } from "../src";
+import { FlexibleSize } from "scriptable-jsx";
 
 <stack size={new FlexibleSize(50, 50)}></stack>;
 ```
