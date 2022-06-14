@@ -2,7 +2,9 @@
 
 This project helps you to write [Scriptable](https://scriptable.app/) widgets with JSX syntax. And add some useful tools by the way.
 
-> you can check demos in `demo/` folder
+> you can check demos in [demo](https://github.com/maoqxxmm/scriptable-jsx/tree/master/demo) folder
+
+[简体中文](https://github.com/maoqxxmm/scriptable-jsx/blob/master/README_zh-CN.md)
 
 ## Install
 
@@ -82,7 +84,7 @@ import { FlexibleSize } from "scriptable-jsx";
 
 The native `Size` means the `pt` unit. It's accurate but not flexible. Users should adapt to different models. But, `FlexibleSize` helps you to write relative value to the widget size. The number you supply means the percent of the full size of width/height of widget.
 
-We have registered common sizes (check in `src/utils/size/device-data.ts`). You can add custom sizes too.
+We have registered common sizes (check in [device-data.ts](https://github.com/maoqxxmm/scriptable-jsx/blob/master/src/utils/size/device-data.ts)). You can add custom sizes too.
 
 ## TODO
 
