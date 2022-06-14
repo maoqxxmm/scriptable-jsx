@@ -6,7 +6,7 @@ const fetchRecentHoliday = async () => {
   // open api from https://www.mxnzp.com/doc/detail?id=1
   // app_id and app_secret here are just for demo purpose and expired. You should apply for it from https://www.mxnzp.com/
   const req = new Request(
-    "https://www.mxnzp.com/api/holiday/recent/list?app_id=vrlhpgmqpivpkfjw&app_secret=S1RXWGZNa0pBWDIyQlJuRVQ5bnpTQT09"
+    "https://www.mxnzp.com/api/holiday/recent/list?app_id=khtmpjqxrnifmdle&app_secret=RkpScHN0alg2RldnSHJieDFCd2FIZz09"
   );
 
   const data = await req.loadJSON();
@@ -28,27 +28,41 @@ const textColor = new Color("#000000");
 
 const font = new Font("Copperplate-Bold", 64);
 
+const BaseTextComp = ({ children, ...otherProps }) => {
+  return (
+    <text textColor={textColor} {...otherProps}>
+      {children}
+    </text>
+  );
+};
+
+const BaseRow = ({ children, ...otherProps }) => {
+  return (
+    <stack centerAlignContent size={new FlexibleSize(100, 33)} {...otherProps}>
+      {children}
+    </stack>
+  );
+};
+
 render(
   <stack
     size={new FlexibleSize(100, 100)}
     backgroundGradient={bg}
     layoutVertically
   >
-    <stack centerAlignContent size={new FlexibleSize(100, 33)}>
-      <text textColor={textColor}>距离下一个节日</text>
-    </stack>
-    <stack centerAlignContent size={new FlexibleSize(100, 33)}>
-      <text textColor={textColor}>{nextHoliday.holidayName}</text>
-    </stack>
-    <stack centerAlignContent size={new FlexibleSize(100, 33)}>
-      <text textColor={textColor}>还有</text>
+    <BaseRow>
+      <BaseTextComp>距离下一个节日</BaseTextComp>
+    </BaseRow>
+    <BaseRow>
+      <BaseTextComp>{nextHoliday.holidayName}</BaseTextComp>
+    </BaseRow>
+    <BaseRow>
+      <BaseTextComp>还有</BaseTextComp>
       <spacer length={5} />
-      <text textColor={textColor} font={font}>
-        {nextHoliday.residueDays}
-      </text>
+      <BaseTextComp font={font}>{nextHoliday.residueDays}</BaseTextComp>
       <spacer length={5} />
-      <text textColor={textColor}>天</text>
-    </stack>
+      <BaseTextComp>天</BaseTextComp>
+    </BaseRow>
   </stack>,
   widget
 );
