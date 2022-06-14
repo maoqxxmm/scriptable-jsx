@@ -21,7 +21,12 @@ import { render } from "scriptable-jsx";
 
 const widget = new ListWidget();
 
-render(<stack>Hello World</stack>, widget);
+render(
+  <stack>
+    <text>Hello World</text>
+  </stack>,
+  widget
+);
 
 widget.presentMedium();
 ```
