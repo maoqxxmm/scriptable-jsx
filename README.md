@@ -87,9 +87,11 @@ import { FlexibleSize } from "scriptable-jsx";
 <stack size={new FlexibleSize(50, 50)}></stack>;
 ```
 
-The native `Size` means the `pt` unit. It's accurate but not flexible. Users should adapt to different models. But, `FlexibleSize` helps you to write relative value to the widget size. The number you supply means the percent of the full size of width/height of widget.
+The native `Size` means the `pt` unit. It's accurate but not flexible. Users need to adapt to different models. But, `FlexibleSize` helps you to write relative value to the widget size. The number you supply means the percent of the full size of width/height of widget.
 
 We have registered common sizes (check in [device-data.ts](https://github.com/maoqxxmm/scriptable-jsx/blob/master/src/utils/size/device-data.ts)). You can add custom sizes too.
+
+**Warning**: Size for macOS is not provided currently. Actually, the runtime size should be provided by Scriptable app.
 
 ## TODO
 

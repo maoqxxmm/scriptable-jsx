@@ -87,6 +87,8 @@ import { FlexibleSize } from "scriptable-jsx";
 
 我们已经提供了一些常见尺寸的数据（详见：[device-data.ts](https://github.com/maoqxxmm/scriptable-jsx/blob/master/src/utils/size/device-data.ts)）。如果有需要的话你也可以添加自定义的尺寸。
 
+**警告**：macOS 的数据现在是没有的。事实上，运行时的尺寸信息应该由 Scriptable app 本身提供给我们。
+
 ## TODO
 
 - [ ] 写单测
