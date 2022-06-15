@@ -1,6 +1,7 @@
 import { WidgetSizeCenter } from ".";
 
 // reference: https://developer.apple.com/design/human-interface-guidelines/components/system-experiences/widgets
+// actually the real size of widget should be given by Scriptable app.
 export const initDefaultData = () => {
   // you can add custom data like this
   // --- iOS ---
@@ -98,6 +99,5 @@ export const initDefaultData = () => {
     [795, 378.5]
   );
   // --- macOS ---
-  // I cannot find the specifications for macOS...Use size for iPhone instead...
-  WidgetSizeCenter.register("1440x900", [170, 170], [364, 170], [364, 382]);
+  // I cannot find the specifications for macOS...
 };

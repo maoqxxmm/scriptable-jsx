@@ -14,6 +14,25 @@ export enum WidgetFamily {
 
 class WidgetSizeCenterClass {
   private mapper: Map<string, Record<WidgetFamily, WidgetSize>> = new Map();
+  // for unregistered screen size
+  private defaultSizeMap: Record<WidgetFamily, WidgetSize> = {
+    small: {
+      width: 170,
+      height: 170,
+    },
+    medium: {
+      width: 378.5,
+      height: 170,
+    },
+    large: {
+      width: 378.5,
+      height: 378.5,
+    },
+    extraLarge: {
+      width: 795,
+      height: 378.5,
+    },
+  };
 
   register(
     screenSize: string,
@@ -60,7 +79,10 @@ class WidgetSizeCenterClass {
     if (widgetSizeMapper) {
       return widgetSizeMapper[type];
     } else {
-      throw new Error(`Cannot find target size: ${size}, pls register first`);
+      console.warn(
+        `Cannot find target size: ${size}! The FlexibleSize will use default data. It's not accurate!`
+      );
+      return this.defaultSizeMap[type];
     }
   }
 }
